@@ -1,0 +1,112 @@
+<div class="container">
+
+  <div>
+    <h4>Ingresar Categoria</h4>
+    <hr>
+  </div>
+
+  <form>
+    <div class="form-row">
+      <div class="col">
+        <label for="exampleInputTelefono">Categoria Nueva</label>
+        <input name="nombre" [(ngModel)]="categoriaNueva.nombre"  [(ngModel)]="categoriaNueva.descripcion" type="text" class="form-control" placeholder="Categoria">
+      </div>
+      <div class="col" style="margin-top: 2.5%">
+        <button type="submit" class="btn btn-success btn-block"  (click)="agregarCategoria()">Ingresar</button>
+      </div>
+
+
+    </div>
+  </form>
+</div>
+<hr>
+
+<div class="container">
+
+  <div>
+    <h4>Ingresar Producto</h4>
+    <hr>
+  </div>
+
+  <form>
+    <div class="form-row">
+      <div class="col">
+        <label for="exampleInputTelefono">Codigo Producto</label>
+        <input name="codigo_producto" [(ngModel)]="producto.codigo_producto"  type="text" class="form-control" placeholder="Codigo Producto">
+      </div>
+      <div class="col">
+        <label for="exampleInputTelefono">Imagen</label>
+        <input name="imagen" [(ngModel)]="producto.imagen" type="file" class="form-control" placeholder="Ingrese Path">
+      </div>
+
+
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <label for="exampleInputTelefono">Descripcion</label>
+        <input name="descripcion" [(ngModel)]="producto.descripcion" type="text" class="form-control" placeholder="Descripcion">
+      </div>
+      <div class="col">
+        <label for="exampleInputTelefono">Precio</label>
+        <input name="precio" [(ngModel)]="producto.precio" type="number" class="form-control" placeholder="Precio">
+      </div>
+
+
+    </div>
+
+    <div class="form-row">
+      <div class="col">
+        <label for="exampleInputTelefono">Cantidad</label>
+        <input name="cantidad_disponible" [(ngModel)]="producto.cantidad_disponible" type="number" class="form-control" placeholder="Cantidad">
+      </div>
+      <div class="col">
+        <label for="exampleInputGenero">Categoria</label>
+        <select class="form-control" name="nombre" [(ngModel)]="categoria.nombre"  [(ngModel)]="categoria.descripcion" >
+          <option *ngFor='let categoria of categorias' >{{categoria.descripcion}}</option>
+        </select>
+      </div>
+
+      
+
+
+    </div>
+
+
+    <div class="form-row">
+      <div class="col col-sm-3" style="margin-left: 75%">
+        <button type="submit" class="btn btn-success btn-block"  (click)="registrarProducto1()">Ingresar</button>
+      </div>
+
+
+
+    </div>
+  </form>
+</div>
+<hr>
+<div>
+    <h4>Mis Productos</h4>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor='let producto of productos'>
+      <figure class="card card-product">
+        <div class="img-wrap"><img src="http://cdn.onlinewebfonts.com/svg/img_231353.png"></div>
+        <figcaption class="info-wrap">
+          <a [routerLink]="['/producto',producto.ID_PRODUCTO]">{{producto.DESCRIPCION}}</a>
+          <p class="desc">{{producto.DESCRIPCION}}</p>
+          <div class="rating-wrap">
+            <div class="label-rating">{{producto.CANTIDAD_DISPONIBLE}} Disponibles</div>
+          </div> <!-- rating-wrap.// -->
+        </figcaption>
+        <div class="bottom-wrap">
+
+          <div class="price-wrap h5">
+            <span class="price-new">Q.{{producto.PRECIO}}</span>
+          </div> <!-- price-wrap.// -->
+        </div> <!-- bottom-wrap.// -->
+      </figure>
+    </div>
+  </div> <!-- row.// -->
+</div>

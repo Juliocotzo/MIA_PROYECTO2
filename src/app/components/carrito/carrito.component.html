@@ -1,0 +1,55 @@
+<section class="jumbotron text-center">
+  <div class="container">
+      <h1 class="jumbotron-heading">Publishes and sells</h1>
+   </div>
+</section>
+
+<div class="container mb-4">
+  <div class="row">
+      <div class="col-12">
+          <div class="table-responsive">
+              <table class="table table-striped">
+                  <thead>
+                      <tr>
+                          <th scope="col"> </th>
+                          <th scope="col">Producto</th>
+                          <th scope="col">Disponibilidad</th>
+                          <th scope="col" class="text-center">Cantidad</th>
+                          <th scope="col" class="text-right">Precio</th>
+                          <th> </th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                      <tr *ngFor='let producto of carritoID'>
+                          <td><img src="http://cdn.onlinewebfonts.com/svg/img_231353.png" width="50" height=" 50"> </td>
+                          <td>{{producto.DESCRIPCION}}</td>
+                          <td>In stock</td>
+                          <td>{{producto.CANTIDAD}}</td>
+                          <td class="text-right">Q.{{producto.PRECIO}}</td>
+                          <td class="text-right"><button class="btn btn-sm btn-danger"><i class="fa fa-trash"></i> </button> </td>
+                      </tr>
+                      
+                      <tr>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td><strong>Total</strong></td>
+                          <td class="text-right"><strong>Q.{{totalCarrito}}</strong></td>
+                      </tr>
+                  </tbody>
+              </table>
+          </div>
+      </div>
+      <div class="col mb-2">
+          <div class="row">
+              <div class="col-sm-12  col-md-6">
+                  <button class="btn btn-block btn-light" routerLink="/productos">Continuar Comprando</button>
+              </div>
+              <div class="col-sm-12 col-md-6 text-right">
+                  <button class="btn btn-success btn-block">Checkout</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

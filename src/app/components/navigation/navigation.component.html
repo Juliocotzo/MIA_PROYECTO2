@@ -1,0 +1,71 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+
+    <a class="navbar-brand" routerLink="/home" routerLinkActive="active"> <i class="fas fa-cart-plus"></i> Publishes and
+      sells</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="!isLogin">
+          <a class="nav-link" routerLink="/productos"><i class="fas fa-store-alt"></i> Productos </a>
+        </li>
+        <li class="nav-item" *ngIf="!isLogin">
+          <a class="nav-link"  routerLink="/form"><i class="fas fa-user-plus"></i> Registrarse</a>
+        </li>
+        <!--ADMINISTRADOR-->
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link"  routerLink="/reportes"><i class="fas fa-chart-bar"></i> Reportes</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link"  routerLink="/formAdmin"><i class="fas fa-user-plus"></i> Registrar</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link"  routerLink="/list"><i class="fas fa-users"></i> Usuarios</a>
+        </li>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link"  routerLink="/login/profile"><i class="fas fa-id-card"></i> Perfil</a>
+        </li>
+        <!--ADMINISTRADOR-->
+
+        <!--HELP DESK-->
+        <li class="nav-item" *ngIf="isHelp_desk">
+          <a class="nav-link"  routerLink="/chat"><i class="far fa-comment-alt"></i> Chat</a>
+        </li>
+        <li class="nav-item" *ngIf="isHelp_desk">
+          <a class="nav-link"  routerLink="/login/profile"><i class="fas fa-id-card"></i> Perfil</a>
+        </li>
+        <!--HELP DESK-->
+
+        <!--CLIENTE-->
+        <li class="nav-item" *ngIf="isCliente">
+          <a class="nav-link" routerLink="/misProductos">Mis Productos </a>
+        </li>
+        <li class="nav-item" *ngIf="isCliente">
+          <a class="nav-link" routerLink="/productos"><i class="fas fa-store-alt"></i> Productos </a>
+        </li>
+        <li class="nav-item" *ngIf="isCliente">
+          <a class="nav-link"  routerLink="/chat"><i class="far fa-comment-alt"></i> Chat</a>
+        </li>
+        <li class="nav-item" *ngIf="isCliente">
+          <a class="nav-link"  routerLink="/carrito"><i class="fas fa-shopping-cart"></i> Carrito</a>
+        </li>
+        <li class="nav-item" *ngIf="isCliente">
+          <a class="nav-link"  routerLink="/login/profile"><i class="fas fa-id-card"></i> Perfil</a>
+        </li>
+        <!--CLIENTE-->
+
+        <li class="nav-item">
+          <a class="nav-link" *ngIf="!isLogin" routerLink="/login"> <i class="fas fa-sign-in-alt"></i> Log In</a>
+          <a class="nav-link" *ngIf="isLogin" (click)="logOut()"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+        </li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>

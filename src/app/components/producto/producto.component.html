@@ -1,0 +1,159 @@
+<div class="card">
+  <div class="row">
+    <aside class="col-sm-5 border-right">
+      <article class="gallery-wrap">
+        <div class="img-big-wrap">
+          <div> <img
+              src="http://pngriver.com/wp-content/uploads/2018/04/Download-Product-Png-Image-59157-For-Designing-Projects.png">
+          </div>
+        </div> <!-- slider-product.// -->
+        <div class="img-small-wrap">
+          <div class="item-gallery"> <img
+              src="https://lh3.googleusercontent.com/WzLLW4HcpmcphLYqRughZn0EXD9Zh-TWo-5wK-oICK4nJn8DQ75XiUt6RKMQwtvWxg">
+          </div>
+          <div class="item-gallery"> <img src="https://myrealdomain.com/images/product-icon.png"> </div>
+          <div class="item-gallery"> <img src="http://www.pt-mkp.com/images/product_icon.png?crc=107442653"> </div>
+          <div class="item-gallery"> <img src="https://pngimage.net/wp-content/uploads/2018/06/product-image-png.png">
+          </div>
+        </div> <!-- slider-nav.// -->
+      </article> <!-- gallery-wrap .end// -->
+    </aside>
+    <aside class="col-sm-7">
+      <article class="card-body p-5">
+        <h3 class="title mb-3">{{producto.CODIGO_PRODUCTO}} - {{producto.DESCRIPCION}} </h3>
+
+        <p>by <a href="#">{{producto.NOMBRE}}</a> </p>
+
+        <hr>
+        <div class="rating">
+          <div class="stars">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <a href="#">41 reviews</a>
+        </div>
+
+        <p class="price-detail-wrap">
+          <span class="price h3 text-warning">
+            <span class="currency">Q.</span><span class="num">{{producto.PRECIO}}</span>
+          </span>
+        </p> <!-- price-detail-wrap .// -->
+        <dl class="item-property">
+          <dt>Description</dt>
+          <dd>
+            <p>{{producto.DESCRIPCION}} </p>
+          </dd>
+        </dl>
+        <dl class="param param-feature">
+          <dt>Model#</dt>
+          <dd>{{producto.CODIGO_PRODUCTO}}</dd>
+        </dl> <!-- item-property-hor .// -->
+        <dl class="param param-feature">
+          <dt>Color</dt>
+          <dd>Negro</dd>
+        </dl> <!-- item-property-hor .// -->
+
+        <hr>
+        <div class="row" *ngIf="logueado">
+          <div class="col-sm-5">
+            <dl class="param param-inline">
+              <dt>Cantidad: </dt>
+              <dd>
+                <select class="form-control form-control-sm" style="width:70px;" [(ngModel)]="cantidad">
+                  <option> 1 </option>
+                  <option> 2 </option>
+                  <option> 3 </option>
+                </select>
+              </dd>
+            </dl> <!-- item-property .// -->
+          </div> <!-- col.// -->
+
+        </div> <!-- row.// -->
+        <hr *ngIf="logueado"> 
+
+        <button type="submit" class="btn btn-success btn-block " (click)="agregarCarrito()" *ngIf="logueado"><i
+            class="fas fa-shopping-cart"></i> Add to cart</button>
+
+      </article> <!-- card-body.// -->
+    </aside> <!-- col.// -->
+  </div> <!-- row.// -->
+</div> <!-- card.// -->
+
+<hr>
+<h2>Comentarios</h2>
+<div class="row">
+  <div class="col-sm-12">
+    <hr />
+    <div class="review-block" *ngFor='let comentario of comentarios'>
+
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="review-block-name"><a href="#">{{comentario.NOMBRE}}</a></div>
+          <div class="review-block-date">{{comentario.FECHA}}<br />Valoracion: {{comentario.VALORACION}}</div>
+        </div>
+        <div class="col-sm-9">
+
+          <div class="review-block-title">{{comentario.TITULO}}</div>
+          <div class="review-block-description">{{comentario.DESCRIPCION}}</div>
+        </div>
+
+
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="logueado">
+  <div class="col-sm-12">
+    <hr />
+    <div class="review-block">
+
+      <div class="col-md-12">
+        <form accept-charset="UTF-8" action="" method="post">
+          <input id="ratings-hidden" name="rating" type="hidden">
+          <div class="form-group">
+            <label for="exampleInputTelefono">Titulo Comentario</label>
+            <input name="titulo" [(ngModel)]="comentario.titulo" type="text" class="form-control"
+              placeholder="Enter Titulo Comentario">
+          </div>
+          <label for="exampleInputTelefono">Descripcion</label>
+          <textarea name="descripcion" [(ngModel)]="comentario.descripcion" class="form-control animated" cols="50"
+            id="new-review" name="comment" placeholder="Enter your review here..." rows="5"></textarea>
+          <div class="row" style="margin-top: 2%; margin-left: 60%">
+            <label for="Valoracion">Valoracion</label>
+              <select class="form-control" name="valoracion" [(ngModel)]="comentario.valoracion">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+          </div>
+
+          <div class="row" style="margin-top: 2%; margin-left: 60%">
+            <button class="btn btn-success btn-block" type="submit" (click)="nuevoComentario()">Save</button>
+
+
+          </div>
+        </form>
+      </div>
+
+
+
+
+
+
+
+    </div>
+  </div>
+</div>

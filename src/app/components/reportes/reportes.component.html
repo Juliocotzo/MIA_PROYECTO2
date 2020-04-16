@@ -1,0 +1,75 @@
+<div class="col-md-8 offset-md-2">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <p>Hepl Desk y su promedio de puntuacion</p>
+        <button type="submit" class="btn btn-success btn-block" (click)="reporte1()">Reporte</button>
+        <hr>
+        <p>Hepl Desk de sexo masculino y que hayan nacido arriba de x anio</p>
+        <div class="form-group">
+          <label for="exampleInputNombre">Anio de nacimiento</label>
+          <input type="text" class="form-control" placeholder="Enter Anio de nacimiento" #fecha2>
+        </div>
+        <button type="submit" class="btn btn-success btn-block" (click)="reporte2(fecha2)">Reporte</button>
+        <hr>
+        <p>Administradores de sexo femenino y que hayan nacido abajo de x anio</p>
+        <div class="form-group">
+          <label for="exampleInputNombre">Anio de nacimiento</label>
+          <input type="text" class="form-control" placeholder="Enter Anio de nacimiento" #fecha3>
+        </div>
+        <button type="submit" class="btn btn-success btn-block" (click)="reporte3(fecha3)">Reporte</button>
+        <hr>
+        <p>Los clientes que mas ganancia han generado ordenados de mayor a menor</p>
+        <button type="submit" class="btn btn-success btn-block" (click)="reporte4()">Reporte</button>
+        <hr>
+        <p>Productos con el promedio de su puntuacion</p>
+        <button type="submit" class="btn btn-success btn-block" (click)="reporte5()">Reporte</button>
+        <hr>
+        <p>Top 3 de productos mas vendidos</p>
+        <button type="submit" class="btn btn-success btn-block " (click)="reporte6()">Reporte</button>
+        <hr>
+        <p>Top 3 de clientes que  mas productos tenga en su catalogo</p>
+        <button type="submit" class="btn btn-success btn-block " (click)="reporte7()">Reporte</button>
+        <hr>
+        <p>Listado de productos y su categoria</p>
+        <button type="submit" class="btn btn-success btn-block" (click)="reporte8()">Reporte</button>
+        <hr>
+        <p>Listado de productos y la cantidad de comentarios asignados en y fecha</p>
+        <div class="form-group">
+          <label for="exampleInputNombre">Fecha de comentario</label>
+          <input type="text" class="form-control" placeholder="Enter Fecha" #fecha9>
+        </div>
+        <button type="submit" class="btn btn-success btn-block" (click)="reporte9(fecha9)">Reporte</button>
+        <hr>
+        <p>Todos los productos que tengan x cantidad disponible</p>
+        <div class="form-group">
+          <label for="exampleInputNombre">Cantidad</label>
+          <input type="text" class="form-control" placeholder="Enter Cantidad" #cantidad10>
+        </div>
+        <button type="submit" class="btn btn-success btn-block " (click)="reporte10(cantidad10)">Reporte</button>
+        <hr>
+        <p>Top 3 de productos con peor puntuacion</p>
+        <button type="submit" class="btn btn-success btn-block" (click)="reporte11()">Reporte</button>
+      </form>
+    </div>
+  </div>
+</div>
+<hr>
+<h2>Reportes</h2>
+
+<p>{{reporteTitle}}</p>
+
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">{{reporteCategoria1}}</th>
+      <th scope="col">{{reporteCategoria2}}</th>
+    </tr>
+  </thead>
+  <tbody *ngFor='let row of reporteInterface'>
+    <tr>
+      <td>{{row.CAMPO1}}</td>
+      <td>{{row.CAMPO2}}</td>
+    </tr>
+  </tbody>
+</table>

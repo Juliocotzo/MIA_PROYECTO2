@@ -1,0 +1,88 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" routerLink="/productos" (click)="todos()">Todos Productos </a>
+      </li>
+      <li class="nav-item active" *ngFor='let categoria of categorias'>
+        <a class="nav-link" routerLink="/productos"
+          (click)="filtrarProductoCategoria(categoria.id_categoria)">{{categoria.descripcion}} </a>
+      </li>
+
+
+
+    </ul>
+
+  </div>
+</nav>
+
+<hr>
+
+
+
+<div class="container1">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="exampleInputGenero">Ordenar Por</label>
+        <select class="form-control" #Ordenar>
+          <option>Fecha de Publicacion</option>
+          <option>Puntuacion</option>
+          <option>Precio</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="exampleInputGenero">ASC/DESC</label>
+        <select class="form-control" #AscDesc>
+          <option>ASC</option>
+          <option>DESC</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class=".col-md-3" style="margin-left: 100px; margin-top: 1%">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+        (click)="filtrarProducto(Ordenar,AscDesc)">Filtrar</button>
+
+    </div>
+
+
+  </div> <!-- row.// -->
+</div>
+
+
+
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4" *ngFor='let producto of productos'>
+      <figure class="card card-product">
+        <div class="img-wrap"><img src="http://cdn.onlinewebfonts.com/svg/img_231353.png"></div>
+        <figcaption class="info-wrap">
+          <a [routerLink]="['/producto',producto.ID_PRODUCTO]">{{producto.DESCRIPCION}}</a>
+          <p class="desc">{{producto.DESCRIPCION}}</p>
+          <div class="rating-wrap">
+            <div class="label-rating">{{producto.CANTIDAD_DISPONIBLE}} Disponibles</div>
+          </div> <!-- rating-wrap.// -->
+        </figcaption>
+        <div class="bottom-wrap">
+          
+          <div class="price-wrap h5">
+            <span class="price-new">Q.{{producto.PRECIO}}</span>
+          </div> <!-- price-wrap.// -->
+        </div> <!-- bottom-wrap.// -->
+      </figure>
+    </div>
+  </div> <!-- row.// -->
+</div>

@@ -1,0 +1,125 @@
+<div class="container">
+    <div class="row profile">
+        <div class="col-md-4">
+            <div class="profile-sidebar">
+                <!-- SIDEBAR USERPIC -->
+                <div class="profile-userpic">
+                    <img src="https://static.change.org/profile-img/default-user-profile.svg" class="img-responsive"
+                        alt="">
+                </div>
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">
+                        {{usuarios.nombre}}
+                    </div>
+                    <div class="profile-usertitle-job">
+                        {{usuarios.tipo_usuario}}
+                    </div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR BUTTONS -->
+                <div class="profile-userbuttons">
+                    <button routerLink="/edit/{{usuarios.id_usuario}}" type="button" class="btn btn-success btn-sm">Edit</button>
+                </div>
+                <!-- END SIDEBAR BUTTONS -->
+                <!-- SIDEBAR MENU -->
+
+                <!-- END MENU -->
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="profile-content">
+                <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Nombre</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p> {{usuarios.nombre}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Apellido</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{usuarios.apellido}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Correo</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{usuarios.correo}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Telefono</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{usuarios.telefono}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Genero</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{usuarios.genero}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Fecha de Nacimiento</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{usuarios.fecha_de_nacimiento}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Direccion</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{usuarios.direccion}}</p>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Credito Disponible</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{usuarios.credito_disponible}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Ganancia Obtenida</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{usuarios.ganancia_obtenida}}</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Clase Cliente</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{usuarios.clase_cliente}}</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

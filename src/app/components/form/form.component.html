@@ -1,0 +1,73 @@
+<div class="col-md-8 offset-md-2">
+  <div class="card">
+    <div class="card-body">
+      <form>
+        <div class="form-group">
+          <label for="exampleInputNombre">Nombre</label>
+          <input name="nombre" [(ngModel)]="usuario.nombre" type="text" class="form-control" placeholder="Enter Nombre"
+            autofocus>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputApellido">Apellido</label>
+          <input name="apellido" [(ngModel)]="usuario.apellido" type="text" class="form-control"
+            placeholder="Enter Apellido">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input name="password" [(ngModel)]="usuario.password" type="password" class="form-control"
+            placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input name="correo" [(ngModel)]="usuario.correo" type="email" class="form-control"
+            aria-describedby="emailHelp" placeholder="Enter email">
+          <small id="emailHelp" class="form-text text-muted">Nunca compartiremos su correo electrónico con nadie
+            más..</small>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputTelefono">Telefono</label>
+          <input name="telefono" [(ngModel)]="usuario.telefono" type="text" class="form-control"
+            placeholder="Enter Telefono">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputFotografia">Fotografia</label>
+          <input name="fotografia" [(ngModel)]="usuario.fotografia" type="file" class="form-control"
+            placeholder="Ingrese Path">
+        </div>
+
+        <!--<div class="form-group">
+          <label for="exampleInputTelefono">Genero</label>
+          <input name="genero" type="text" class="form-control" placeholder="Enter Genero" #genero>
+        </div>-->
+
+
+
+        <div class="form-group" *ngIf="!edit">
+          <label for="exampleInputGenero">Genero</label>
+          <select class="form-control" name="generoID" [(ngModel)]="generoID">
+            <option>Hombre</option>
+            <option>Mujer</option>
+            <option>Otro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputTelefono">Fecha de Nacimiento</label>
+          <input name="fecha_de_nacimiento" [(ngModel)]="usuario.fecha_de_nacimiento" type="text" class="form-control"
+            placeholder="Enter Fecha de Nacimiento" bsDatepicker>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputTelefono">Direccion</label>
+          <input name="direccion" [(ngModel)]="usuario.direccion" type="text" class="form-control"
+            placeholder="Enter Direccion">
+        </div>
+
+        <button type="submit" class="btn btn-success btn-block "
+          (click)="edit ? updateUsuario() : registrarUsuario(genero)" *ngIf="!edit">Registrar</button>
+          <button type="submit" class="btn btn-success btn-block "
+          (click)="edit ? updateUsuario() : registrarUsuario(genero)"  *ngIf="edit" >Editar</button>
+      </form>
+    </div>
+  </div>
+</div>
